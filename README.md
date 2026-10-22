@@ -36,6 +36,7 @@ Fourteen themes, each with optional glass panels and an ambient background. Pick
 | ![Tokyo Night](docs/screenshots/overview-tokyo-night.jpg) **Tokyo Night** | ![Synthwave '84](docs/screenshots/overview-synthwave-84.jpg) **Synthwave '84** |
 | ![Catppuccin Latte](docs/screenshots/overview-catppuccin-latte.jpg) **Catppuccin Latte** (light) | ![Nord](docs/screenshots/overview-nord.jpg) **Nord** + Cyber Grid wallpaper |
 | ![Gruvbox](docs/screenshots/overview-gruvbox-flat.jpg) **Gruvbox**, glass off | ![System page](docs/screenshots/system-neon-hud-aurora.jpg) **System** page, Neon HUD |
+| ![Cyberpunk](docs/screenshots/overview-cyberpunk.jpg) **Cyberpunk** | ![Rosé Pine](docs/screenshots/overview-rose-pine.jpg) **Rosé Pine** + Rose Dawn wallpaper |
 | ![AI Chat](docs/screenshots/chat-neon-hud-aurora.jpg) **AI Chat** with a local model | |
 
 ## Requirements
