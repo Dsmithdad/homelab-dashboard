@@ -1,0 +1,3 @@
+# Drives whose Scrutiny warnings are acknowledged, one WWN per line (find it in Scrutiny's URL or /api/summary).
+# An ignored drive still shows red if its own SMART self-check ever fails.
+# 0x5000000000000000  # example: old spare drive, warning reviewed

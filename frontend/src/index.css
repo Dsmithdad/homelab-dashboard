@@ -1,0 +1,101 @@
+/* LED lettering for the Neon HUD theme (SIL Open Font License, see src/fonts/DSEG-LICENSE.txt) */
+@font-face {
+  font-family: 'DSEG14 Classic';
+  src: url('./fonts/DSEG14Classic-Regular.woff2') format('woff2');
+  font-weight: 400 700; /* a range, so bold requests do not get a smudgy fake-bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Colors come from the active theme: ThemeModeContext sets --bg, --accent, --glow1.. etc. on <html>. */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Ambient background (sits behind the frosted-glass panels) ---- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 620px at 8% -6%, var(--glow1, transparent), transparent 62%),
+    radial-gradient(820px 600px at 104% 10%, var(--glow2, transparent), transparent 62%),
+    radial-gradient(1000px 720px at 55% 118%, var(--glow3, transparent), transparent 62%);
+}
+
+/* Optional wallpaper: its own fixed layer under the glow blobs, so it can be dimmed and blurred.
+   The oversized inset hides the soft edges that blur() creates. */
+html[data-wallpaper='on']::before {
+  content: '';
+  position: fixed;
+  inset: -48px;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0, 0, 0, var(--wp-dim, 0)), rgba(0, 0, 0, var(--wp-dim, 0))),
+    var(--wallpaper);
+  filter: blur(var(--wp-blur, 0px));
+}
+/* 'Plain' hides the blobs too. */
+html[data-wallpaper='plain'] body::before,
+html[data-wallpaper='plain'] body::after {
+  display: none;
+}
+
+/* Cyberpunk-style themes also get a faint perspective-less grid that fades toward the bottom. */
+html[data-bg='grid'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0%, transparent 80%);
+}
+
+/* The switch in the theme menu turns the whole effect off. */
+html[data-glass='off'] body::before,
+html[data-glass='off'] body::after {
+  display: none;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body::after { display: none; }
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  margin-top: 64px; /* Account for fixed navbar */
+  background-color: transparent; /* let the ambient background show through */
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .app-main {
+    margin-top: 56px;
+    padding: 16px;
+  }
+}

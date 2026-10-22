@@ -1,0 +1,16 @@
+# Backend Requirements for Homelab Dashboard
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+psutil==5.9.8
+docker==7.1.0
+requests==2.31.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+sqlalchemy==2.0.23
+alembic==1.13.1
+python-socketio==5.9.0
+# For charts/data processing (if needed)
+pandas==2.2.0
+numpy==1.26.2
+pydantic-settings

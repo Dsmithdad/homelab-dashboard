@@ -1,0 +1,3 @@
+# Containers that are stopped on purpose. They won't trigger "Needs attention" or count in the totals.
+# One container name per line (# starts a comment). Edits apply immediately, no restart needed.
+# example-old-container   # stopped on purpose

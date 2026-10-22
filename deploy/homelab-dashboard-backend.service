@@ -1,0 +1,16 @@
+[Unit]
+Description=Homelab Dashboard Backend (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/opt/homelab-dashboard/backend
+EnvironmentFile=-/opt/homelab-dashboard/backend/.env
+Environment=PATH=/home/YOUR_USER/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/opt/homelab-dashboard/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

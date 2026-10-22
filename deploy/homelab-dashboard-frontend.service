@@ -1,0 +1,15 @@
+[Unit]
+Description=Homelab Dashboard Frontend (static build)
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/opt/homelab-dashboard/frontend
+Environment=PATH=/usr/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/npx --yes serve -s build -l 3001
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

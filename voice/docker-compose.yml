@@ -1,0 +1,18 @@
+# Local speech-to-text (Whisper) for the dashboard's voice chat. Only the dashboard backend talks to it.
+# Start:  docker compose -f voice/docker-compose.yml up -d   (run from the dashboard folder)
+services:
+  speaches:
+    image: ghcr.io/speaches-ai/speaches:latest-cuda
+    container_name: dashboard-whisper
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8100:8000"   # localhost only: not reachable from the network
+    volumes:
+      - ./hf-cache:/home/ubuntu/.cache/huggingface/hub   # downloaded models survive container rebuilds
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

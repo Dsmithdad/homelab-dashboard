@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/.env:/app/.env:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro  # For Docker container management
+      - ~/homelab:/homelab:ro  # Optional: access to homelab files
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    restart: unless-stopped
+    depends_on:
+      - frontend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3001:80"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+    restart: unless-stopped
+
+# Optional: Add a reverse proxy like NGINX or Traefik for SSL termination
+# Optional: Add a database service if using PostgreSQL instead of SQLite
+# Optional: Add monitoring services like Prometheus + Grafana
+
+volumes:
+  backend_data:
