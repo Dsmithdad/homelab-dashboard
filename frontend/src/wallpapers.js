@@ -32,4 +32,9 @@ export const WALLPAPERS = [
   },
 
   // Images (1920x1080 JPGs in public/wallpapers)
+  { id: 'img-galaxy', name: 'Galaxy', css: "url(/wallpapers/galaxy.jpg) center / cover no-repeat" },
+  { id: 'img-retro', name: 'Retro Synthwave', css: "url(/wallpapers/retro-synthwave.jpg) center / cover no-repeat" },
+  { id: 'img-cyber', name: 'Cyber City', css: "url(/wallpapers/cyber-city.jpg) center / cover no-repeat" },
+  { id: 'img-city', name: 'City Dusk', css: "url(/wallpapers/city-dusk.jpg) center / cover no-repeat" },
+  { id: 'img-aurora', name: 'Aurora Peaks', css: "url(/wallpapers/aurora-peaks.jpg) center / cover no-repeat" },
 ];

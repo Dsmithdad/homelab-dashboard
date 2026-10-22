@@ -112,8 +112,9 @@ The `data/` files are re-read on every request, so edits apply without a restart
 
 - **Voice input**: `docker compose -f voice/docker-compose.yml up -d` starts a local Whisper server (NVIDIA GPU,
   about 1 GB VRAM) on `127.0.0.1:8100`.
-- **Wallpapers**: gradient wallpapers are built in. To add photos, put `.jpg` files in `frontend/public/wallpapers/`
-  and add entries to `frontend/src/wallpapers.js`, for example
+- **Wallpapers**: gradient wallpapers plus five images (Galaxy, Retro Synthwave, Cyber City, City Dusk, Aurora Peaks)
+  are built in, and Settings → Appearance lets you upload your own. To ship another image with the app, put the `.jpg`
+  in `frontend/public/wallpapers/` and add an entry to `frontend/src/wallpapers.js`, for example
   `{ id: 'img-mine', name: 'Mine', css: "url(/wallpapers/mine.jpg) center / cover no-repeat" }`.
 
 ## Project layout
